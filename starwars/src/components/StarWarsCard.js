@@ -1,9 +1,11 @@
 import React from "react";
 
-export default function StarWarsCard({ name, imgUrl }) {
+export default function StarWarsCard(props) {
+    console.log(props);
     return (
         <div className="starWars-card">
-            <img key={name} src={imgUrl} alt="Star Wars Card" />
+            <img src={props.url} alt="Star Wars Card" />
+            <p>{props.birthyear}</p>
         </div>
     );
 }

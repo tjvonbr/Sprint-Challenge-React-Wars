@@ -1,21 +1,29 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
-import StarWarsGrid from "./components/StarWarsGrid";
+import axios from 'axios';
+import StarWarsCard from './components/StarWarsCard';
 
-const App = () => {
-  // Try to think through what state you'll need for this app before starting. Then build out
-  // the state properties here.
-
-  // Fetch characters from the star wars api in an effect hook. Remember, anytime you have a 
-  // side effect in a component, you want to think about which state and/or props it should
-  // sync up with, if any.
+export default function App() {
+  const [data, setData] = useState([])
+  useEffect(() => {
+    axios
+      .get('https://henry-mock-swapi.herokuapp.com/api')
+      .then(response => {
+        console.log('Star Wars Characters', response.data.results)
+        setData(response.data.results);
+      })
+      .catch(error => {
+        console.log('Sorry.  The API is not able to give you data right now', error)
+      })
+  }, [])
 
   return (
     <div className="App">
       <h1 className="Header">React Wars</h1>
-      <StarWarsGrid limit={10} />
+        {data.map(char => (
+          <StarWarsCard key={char.name}
+                        url={char.url}
+                        birthyear={char.birth_year} />))}
     </div>
-  );
+  )  
 }
-
-export default App;
