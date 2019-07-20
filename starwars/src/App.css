@@ -1,8 +1,40 @@
-.App {
-  text-align: center;
-}
 .Header {
+  text-align: center;
   color: #443e3e;
   text-shadow: 1px 1px 5px #fff;
+  font-size: 40px;
 }
 /* write your parent styles in here for your App.js */
+.card-container {
+  width: 15%;
+  margin: auto;
+  background-color: white;
+  margin-bottom: 20px;
+  border-radius: 3%;
+}
+
+.char-name {
+  font-size: 16px;
+  font-weight: bold;
+  padding: 10px 0px 0px 10px;
+  text-align: left;
+}
+
+.birthday {
+  text-align: left;
+  padding-left: 10px;
+}
+
+.date {
+  font-size: 14px;
+  color: gray;
+  text-align: left;
+  width: 100%;
+}
+
+.description {
+  font-size: 14px;
+  align-content: left;
+  padding: 0px 0px 10px 10px;
+  border-bottom: 1px solid lightgray;
+}
