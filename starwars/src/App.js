@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import './App.css';
 import axios from 'axios';
 import StarWarsCard from './components/StarWarsCard';
+
+import './App.css';
 
 export default function App() {
   const [data, setData] = useState([])
@@ -19,11 +20,10 @@ export default function App() {
 
   return (
     <div className="App">
-      <h1 className="Header">React Wars</h1>
+      <h1 className="Header">Star Wars Characters</h1>
         {data.map(char => (
-          <StarWarsCard key={char.name}
-                        url={char.url}
-                        birthyear={char.birth_year} />))}
+          <StarWarsCard char={char}
+                        key={char.name} />))}
     </div>
   )  
 }
